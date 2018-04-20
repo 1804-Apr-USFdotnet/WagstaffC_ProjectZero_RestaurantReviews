@@ -1,10 +1,7 @@
-﻿using ReviewSiteData;
-using ReviewSiteData.Base.Model;
-
-namespace ReviewSiteLogic
+﻿namespace ReviewSiteLogic
 {
     public static class RestaurantTools
     {
-        
+
     }
 }

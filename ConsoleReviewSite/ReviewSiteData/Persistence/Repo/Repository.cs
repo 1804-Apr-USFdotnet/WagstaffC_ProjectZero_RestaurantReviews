@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using ReviewSiteData.Base.Repo;
 
 namespace ReviewSiteData.Persistence.Repo
@@ -13,44 +11,30 @@ namespace ReviewSiteData.Persistence.Repo
     {
         protected readonly DbContext Context;
 
+        private DbSet<TEntity> _entities
+        {
+            get => Context.Set<TEntity>();
+        }
+
         public Repository(DbContext context)
         {
             this.Context = context;
         }
 
-        public TEntity Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public TEntity Get(int id) => _entities.Find(id);
 
-        public IEnumerable<TEntity> Get()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<TEntity> Get() => _entities.ToList();
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate) => _entities.Where(predicate);
 
-        public void Add(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
+        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate) => _entities.SingleOrDefault(predicate);
 
-        public void Add(IEnumerable<TEntity> entities)
-        {
-            throw new NotImplementedException();
-        }
+        public void Add(TEntity entity) => _entities.Add(entity);
 
-        public void Remove(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
+        public void Add(IEnumerable<TEntity> entities) => _entities.AddRange(entities);
 
-        public void Remove(IEnumerable<TEntity> entities)
-        {
-            throw new NotImplementedException();
-        }
+        public void Remove(TEntity entity) => _entities.Remove(entity);
+
+        public void Remove(IEnumerable<TEntity> entities) => _entities.RemoveRange(entities);
     }
 }

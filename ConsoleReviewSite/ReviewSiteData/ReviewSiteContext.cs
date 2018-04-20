@@ -10,7 +10,6 @@ namespace ReviewSiteData
 
         public ReviewSiteContext() : base("name=ReviewSiteContext")
         {
-            
         }
     }
 }
