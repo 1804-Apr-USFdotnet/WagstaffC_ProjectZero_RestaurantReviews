@@ -1,8 +1,9 @@
 ﻿using System.Data.Entity;
+using ReviewSiteData.Base.Model;
 
 namespace ReviewSiteData
 {
-    class ReviewSiteContext : DbContext
+    public class ReviewSiteContext : DbContext
     {
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }

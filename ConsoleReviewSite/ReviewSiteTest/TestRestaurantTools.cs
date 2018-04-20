@@ -1,13 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ReviewSiteLogic;
 
 namespace ReviewSiteTest
 {
     [TestClass]
-    public class UnitTest1
+    public class TestRestaurantTools
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        
     }
 }

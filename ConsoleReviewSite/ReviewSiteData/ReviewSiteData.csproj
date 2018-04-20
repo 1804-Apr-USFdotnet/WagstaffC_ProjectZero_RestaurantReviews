@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\Repo\IRepository.cs" />
+    <Compile Include="Base\Repo\IRestaurantRepository.cs" />
     <Compile Include="Migrations\201804192007235_InitialModel.cs" />
     <Compile Include="Migrations\201804192007235_InitialModel.Designer.cs">
       <DependentUpon>201804192007235_InitialModel.cs</DependentUpon>
@@ -55,9 +57,15 @@
     <Compile Include="Migrations\201804201343076_NewConnection.Designer.cs">
       <DependentUpon>201804201343076_NewConnection.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804201508107_AddReviewTimestamp.cs" />
+    <Compile Include="Migrations\201804201508107_AddReviewTimestamp.Designer.cs">
+      <DependentUpon>201804201508107_AddReviewTimestamp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Restaurant.cs" />
-    <Compile Include="Review.cs" />
+    <Compile Include="Base\Model\Restaurant.cs" />
+    <Compile Include="Base\Model\Review.cs" />
+    <Compile Include="Persistence\Repo\Repository.cs" />
+    <Compile Include="Persistence\Repo\RestaurantRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewSiteContext.cs" />
   </ItemGroup>
@@ -70,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804201343076_NewConnection.resx">
       <DependentUpon>201804201343076_NewConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804201508107_AddReviewTimestamp.resx">
+      <DependentUpon>201804201508107_AddReviewTimestamp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,6 @@
-﻿namespace ReviewSiteData
+﻿using System;
+
+namespace ReviewSiteData.Base.Model
 {
     public class Review
     {
@@ -7,5 +9,6 @@
         public string Title { get; set; }
         public string Body { get; set; }
         public int Rating { get; set; }
+        public DateTime DatePublished { get; set; }
     }
 }

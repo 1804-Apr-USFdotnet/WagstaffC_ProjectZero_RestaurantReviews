@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace ReviewSiteData
+namespace ReviewSiteData.Base.Model
 {
-    class Restaurant
+    public class Restaurant
     {
         public int Id { get; set; }
         public string Name { get; set; }
