@@ -63,11 +63,16 @@
     <Compile Include="Migrations\201804201508107_AddReviewTimestamp.Designer.cs">
       <DependentUpon>201804201508107_AddReviewTimestamp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804201852214_RestIDtoReview.cs" />
+    <Compile Include="Migrations\201804201852214_RestIDtoReview.Designer.cs">
+      <DependentUpon>201804201852214_RestIDtoReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Base\Model\Restaurant.cs" />
     <Compile Include="Base\Model\Review.cs" />
     <Compile Include="Persistence\Repo\Repository.cs" />
     <Compile Include="Persistence\Repo\RestaurantRepository.cs" />
+    <Compile Include="Persistence\Repo\ReviewRepository.cs" />
     <Compile Include="Persistence\WorkUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewSiteContext.cs" />
@@ -84,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804201508107_AddReviewTimestamp.resx">
       <DependentUpon>201804201508107_AddReviewTimestamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804201852214_RestIDtoReview.resx">
+      <DependentUpon>201804201852214_RestIDtoReview.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
