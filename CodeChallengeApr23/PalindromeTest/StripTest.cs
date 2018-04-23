@@ -72,5 +72,16 @@ namespace PalindromeTest
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void Messy()
+        {
+            string initial = "a To--Yo=ta+'s a t       OYotA..-  -  %@@!   ";
+            string expected = "atoyotasatoyota";
+
+            string result = Palindrome.Strip(initial);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }

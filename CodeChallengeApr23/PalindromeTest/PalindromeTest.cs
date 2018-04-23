@@ -61,5 +61,27 @@ namespace PalindromeTest
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void Numbers()
+        {
+            string p1 = "1221";
+
+            bool expected = true;
+            bool result = Palindrome.IsPalindrome(p1);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void Weird()
+        {
+            string p1 = "a To--Yo=ta+'s a t       OYotA..-  -  %@@!   ";
+
+            bool expected = true;
+            bool result = Palindrome.IsPalindrome(p1);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
