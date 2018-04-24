@@ -2,17 +2,16 @@
 using ReviewSiteData.Base.Repo;
 using ReviewSiteData.Persistence.Repo;
 
-namespace ReviewSiteData.Persistence
-{
-    public class WorkUnit : IWorkUnit
-    {
+namespace ReviewSiteData.Persistence {
+
+    public class WorkUnit : IWorkUnit {
+
         private readonly ReviewSiteContext _context;
 
-        public IRestaurantRepository Restaurants { get; private set;  }
+        public IRestaurantRepository Restaurants { get; private set; }
         public IReviewRepository Reviews { get; private set; }
-        
-        public WorkUnit(ReviewSiteContext context)
-        {
+
+        public WorkUnit(ReviewSiteContext context) {
             _context = context;
             Restaurants = new RestaurantRepository(_context);
             Reviews = new ReviewRepository(_context);
@@ -20,9 +19,10 @@ namespace ReviewSiteData.Persistence
 
         public int SaveChanges() => _context.SaveChanges();
 
-        public void Dispose()
-        {
+        public void Dispose() {
             _context.Dispose();
         }
+
     }
+
 }

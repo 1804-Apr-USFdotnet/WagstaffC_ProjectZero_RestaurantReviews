@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace ReviewSiteData.Base.Model
-{
-    public class Review
-    {
+namespace ReviewSiteData.Base.Model {
+
+    public class Review {
+
         public int Id { get; set; }
         public int RestaurantId { get; set; }
         public string Name { get; set; }
@@ -11,5 +11,7 @@ namespace ReviewSiteData.Base.Model
         public string Body { get; set; }
         public int Rating { get; set; }
         public DateTime DatePublished { get; set; }
+
     }
+
 }

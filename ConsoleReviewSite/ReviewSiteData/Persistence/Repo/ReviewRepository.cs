@@ -5,22 +5,20 @@ using System.Linq;
 using ReviewSiteData.Base.Model;
 using ReviewSiteData.Base.Repo;
 
-namespace ReviewSiteData.Persistence.Repo
-{
-    class ReviewRepository : Repository<Review>, IReviewRepository
-    {
-        public ReviewRepository(DbContext context) : base(context)
-        {
-        }
+namespace ReviewSiteData.Persistence.Repo {
 
-        public ReviewSiteContext ReviewSiteContext
-        {
+    class ReviewRepository : Repository<Review>, IReviewRepository {
+
+        public ReviewRepository(DbContext context) : base(context) { }
+
+        public ReviewSiteContext ReviewSiteContext {
             get => Context as ReviewSiteContext;
         }
 
-        public IEnumerable<Review> GetReviews(int restaurantId)
-        {
+        public IEnumerable<Review> GetReviews(int restaurantId) {
             throw new NotImplementedException();
         }
+
     }
+
 }

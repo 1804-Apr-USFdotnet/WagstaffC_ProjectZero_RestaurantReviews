@@ -2,10 +2,10 @@
 using Newtonsoft.Json;
 
 
-namespace ReviewSiteLogic.Models
-{
-    public class Review
-    {
+namespace ReviewSiteLogic.Models {
+
+    public class Review {
+
         public int Id { get; set; }
         public int RestaurantId { get; set; }
         public string Name { get; set; }
@@ -14,13 +14,9 @@ namespace ReviewSiteLogic.Models
         public int Rating { get; set; }
         public DateTime DatePublished { get; set; }
 
-        public Review()
-        {
-            
-        }
+        public Review() { }
 
-        public Review(string name, string title, string body, int rating)
-        {
+        public Review(string name, string title, string body, int rating) {
             Name = name;
             Title = title;
             Body = body;
@@ -28,8 +24,7 @@ namespace ReviewSiteLogic.Models
             DatePublished = DateTime.Now;
         }
 
-        public Review(Review othReview)
-        {
+        public Review(Review othReview) {
             this.Id = othReview.Id;
             this.RestaurantId = othReview.RestaurantId;
             this.Name = othReview.Name;
@@ -42,5 +37,7 @@ namespace ReviewSiteLogic.Models
         public Review(string json) : this(JsonConvert.DeserializeObject<Review>(json)) { }
 
         public new string ToString() => JsonConvert.SerializeObject(this);
+
     }
+
 }

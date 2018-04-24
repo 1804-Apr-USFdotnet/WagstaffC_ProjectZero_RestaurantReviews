@@ -1,10 +1,9 @@
-﻿
-namespace ConsoleReviewSite
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {         
-        }
+﻿namespace ConsoleReviewSite {
+
+    class Program {
+
+        static void Main(string[] args) { }
+
     }
+
 }

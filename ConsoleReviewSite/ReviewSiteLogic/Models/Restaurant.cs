@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ReviewSiteLogic.Models
-{
-    public class Restaurant
-    {
+namespace ReviewSiteLogic.Models {
+
+    public class Restaurant {
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public ICollection<Review> Reviews { get; set; }
 
-        public Restaurant()
-        {
+        public Restaurant() {
             Reviews = new List<Review>();
         }
 
-        public Restaurant(Restaurant othRestaurant)
-        {
+        public Restaurant(string name, string address, string phone) : this() {
+            Name = name;
+            Address = address;
+            Phone = phone;
+        }
+
+        public Restaurant(Restaurant othRestaurant) {
             Id = othRestaurant.Id;
             Name = othRestaurant.Name;
             Address = othRestaurant.Address;
@@ -28,16 +32,14 @@ namespace ReviewSiteLogic.Models
 
         public Restaurant(string json) : this(JsonConvert.DeserializeObject<Restaurant>(json)) { }
 
-        public double Rating()
-        {
+        public double Rating() {
             var ratings = from r in Reviews
-                    select r.Rating;
+                select r.Rating;
             return ratings.Average();
         }
 
-        public new string ToString()
-        {
-            return JsonConvert.SerializeObject(this);
-        }
+        public new string ToString() => JsonConvert.SerializeObject(this);
+
     }
+
 }

@@ -5,19 +5,17 @@ using System.Linq;
 using System.Linq.Expressions;
 using ReviewSiteData.Base.Repo;
 
-namespace ReviewSiteData.Persistence.Repo
-{
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
-    {
+namespace ReviewSiteData.Persistence.Repo {
+
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class {
+
         protected readonly DbContext Context;
 
-        private DbSet<TEntity> _entities
-        {
+        private DbSet<TEntity> _entities {
             get => Context.Set<TEntity>();
         }
 
-        public Repository(DbContext context)
-        {
+        public Repository(DbContext context) {
             this.Context = context;
         }
 
@@ -27,7 +25,8 @@ namespace ReviewSiteData.Persistence.Repo
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate) => _entities.Where(predicate);
 
-        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate) => _entities.SingleOrDefault(predicate);
+        public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate) =>
+            _entities.SingleOrDefault(predicate);
 
         public void Add(TEntity entity) => _entities.Add(entity);
 
@@ -36,5 +35,7 @@ namespace ReviewSiteData.Persistence.Repo
         public void Remove(TEntity entity) => _entities.Remove(entity);
 
         public void Remove(IEnumerable<TEntity> entities) => _entities.RemoveRange(entities);
+
     }
+
 }
