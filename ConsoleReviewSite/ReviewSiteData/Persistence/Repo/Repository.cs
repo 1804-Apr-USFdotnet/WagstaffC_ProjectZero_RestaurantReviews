@@ -11,12 +11,10 @@ namespace ReviewSiteData.Persistence.Repo {
 
         protected readonly DbContext Context;
 
-        private DbSet<TEntity> _entities {
-            get => Context.Set<TEntity>();
-        }
+        private DbSet<TEntity> _entities => Context.Set<TEntity>();
 
         public Repository(DbContext context) {
-            this.Context = context;
+            Context = context;
         }
 
         public TEntity Get(int id) => _entities.Find(id);

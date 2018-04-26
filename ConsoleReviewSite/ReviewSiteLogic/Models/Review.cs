@@ -1,6 +1,7 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿//todo deprecate
 
+using System;
+using Newtonsoft.Json;
 
 namespace ReviewSiteLogic.Models {
 

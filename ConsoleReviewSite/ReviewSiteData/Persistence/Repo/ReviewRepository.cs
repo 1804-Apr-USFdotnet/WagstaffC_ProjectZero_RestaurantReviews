@@ -11,12 +11,10 @@ namespace ReviewSiteData.Persistence.Repo {
 
         public ReviewRepository(DbContext context) : base(context) { }
 
-        public ReviewSiteContext ReviewSiteContext {
-            get => Context as ReviewSiteContext;
-        }
+        public ReviewSiteContext ReviewSiteContext => Context as ReviewSiteContext;
 
         public IEnumerable<Review> GetReviews(int restaurantId) {
-            throw new NotImplementedException();
+            return ReviewSiteContext.Reviews.Where(r => r.RestaurantId == restaurantId).ToList();
         }
 
     }

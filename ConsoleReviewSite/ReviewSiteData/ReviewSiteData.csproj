@@ -94,5 +94,6 @@
       <DependentUpon>201804201852214_RestIDtoReview.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

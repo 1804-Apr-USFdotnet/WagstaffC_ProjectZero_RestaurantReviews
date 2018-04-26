@@ -11,14 +11,21 @@ namespace ReviewSiteData.Persistence.Repo {
 
         public RestaurantRepository(DbContext context) : base(context) { }
 
-        public ReviewSiteContext ReviewSiteContext {
-            get => Context as ReviewSiteContext;
-        }
+        public ReviewSiteContext ReviewSiteContext => Context as ReviewSiteContext;
 
         public IEnumerable<Restaurant> GetTopRestaurants(int count) {
-            throw new NotImplementedException();
+            return ReviewSiteContext.Restaurants.Include(rest => rest.Reviews)
+                   .OrderByDescending(rest => rest.Reviews.Average(rev => rev.Rating)).Take(count).ToList();
         }
 
+        public IEnumerable<Restaurant> GetRestaurantsReviews() {
+            return ReviewSiteContext.Restaurants.Include(rest => rest.Reviews).ToList();
+        }
+
+        public IEnumerable<Restaurant> SearchRestaurants(string term) {
+            throw new NotImplementedException();
+        }
+        
     }
 
 }

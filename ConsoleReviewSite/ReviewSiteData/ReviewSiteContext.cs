@@ -8,7 +8,7 @@ namespace ReviewSiteData {
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
 
-        public ReviewSiteContext() : base("name=ReviewSiteContext") { }
+        public ReviewSiteContext(string name = "name=ReviewSiteContext") : base(name) { }
 
     }
 

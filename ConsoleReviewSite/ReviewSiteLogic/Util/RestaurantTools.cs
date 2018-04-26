@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ReviewSiteLogic.Models;
 
-namespace ReviewSiteLogic {
+namespace ReviewSiteLogic.Util {
 
     public static class RestaurantTools {
 

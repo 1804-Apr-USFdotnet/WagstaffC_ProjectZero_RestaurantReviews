@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿//todo deprecate
+
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,7 +12,7 @@ namespace ReviewSiteLogic.Models {
         public string Name { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
-        public ICollection<Review> Reviews { get; set; }
+        public List<Review> Reviews { get; set; }
 
         public Restaurant() {
             Reviews = new List<Review>();
@@ -32,14 +34,13 @@ namespace ReviewSiteLogic.Models {
 
         public Restaurant(string json) : this(JsonConvert.DeserializeObject<Restaurant>(json)) { }
 
+        public new string ToString() => JsonConvert.SerializeObject(this);
+
         public double Rating() {
             var ratings = from r in Reviews
                 select r.Rating;
             return ratings.Average();
         }
-
-        public new string ToString() => JsonConvert.SerializeObject(this);
-
     }
 
 }
