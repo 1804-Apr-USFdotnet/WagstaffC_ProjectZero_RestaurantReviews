@@ -49,7 +49,7 @@ namespace ReviewSiteTest
         [TestMethod]
         public void GetReviewsForRestaurantTypeCorrect() {
 
-            var reviews = workUnit.Reviews.GetReviews(1);
+            var reviews = workUnit.Reviews.GetReviews(2);
 
             Assert.IsInstanceOfType(reviews.First(), typeof(Review));
         }

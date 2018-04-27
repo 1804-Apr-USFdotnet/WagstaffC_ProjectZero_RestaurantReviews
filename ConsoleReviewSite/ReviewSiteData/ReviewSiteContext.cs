@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using ReviewSiteData.Base.Model;
 
 namespace ReviewSiteData {
@@ -8,7 +9,7 @@ namespace ReviewSiteData {
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
 
-        public ReviewSiteContext(string name = "name=ReviewSiteContext") : base(name) { }
+        public ReviewSiteContext(string name = "ReviewSiteContext") : base(string.Concat("name=",name)) { }
 
     }
 

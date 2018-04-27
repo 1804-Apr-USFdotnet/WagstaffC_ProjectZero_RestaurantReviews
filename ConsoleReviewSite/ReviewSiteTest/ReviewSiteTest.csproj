@@ -70,13 +70,12 @@
   <ItemGroup>
     <Compile Include="Util\DummyDataLoader.cs" />
     <Compile Include="RepoTest.cs" />
-    <Compile Include="RestaurantTest.cs" />
-    <Compile Include="ReviewTest.cs" />
     <Compile Include="RestaurantToolsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

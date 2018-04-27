@@ -1,17 +1,30 @@
-﻿using ReviewSiteData;
+﻿using System;
+using System.Collections.Generic;
+using ReviewSiteData;
+using ReviewSiteData.Base.Model;
 using ReviewSiteData.Persistence;
 
 namespace ReviewSiteLogic {
 
-    class Session {
+    public class Session {
 
-        private WorkUnit workUnit;
+        private WorkUnit _workUnit;
 
         public Session() {
-            workUnit = new WorkUnit(new ReviewSiteContext());
+            _workUnit = new WorkUnit(new ReviewSiteContext());
         }
 
-        
+        public List<Restaurant> ViewRestaurants() {
+            throw new NotImplementedException();
+        }
+
+        public Restaurant ViewRestaurant() {
+            throw new NotImplementedException();
+        }
+
+        public List<Review> ViewReviews(int id) {
+            throw new NotImplementedException();
+        }
 
     }
 

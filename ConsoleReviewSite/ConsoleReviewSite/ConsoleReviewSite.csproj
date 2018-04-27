@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Render\RestaurantDisplay.cs" />
+    <Compile Include="Render\ReviewDisplay.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -59,5 +61,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
