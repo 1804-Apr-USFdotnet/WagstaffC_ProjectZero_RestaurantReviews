@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleReviewSite.Render;
 using ReviewSiteData;
 using ReviewSiteData.Base.Model;
 using ReviewSiteData.Persistence;
+using ReviewSiteLogic.Render;
 using ReviewSiteLogic.Util;
 
 namespace ReviewSiteLogic {
@@ -29,7 +29,7 @@ namespace ReviewSiteLogic {
         }
 
         public RestaurantDisplay ViewRestaurant(int id) {
-            Restaurant restaurant = _workUnit.Restaurants.GetRestaurantReviews(id);
+            var restaurant = _workUnit.Restaurants.GetRestaurantReviews(id);
             return dsp.ToDisplay(restaurant);
         }
 

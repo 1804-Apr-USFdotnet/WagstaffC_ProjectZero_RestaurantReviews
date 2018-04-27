@@ -5,6 +5,7 @@ using ReviewSiteLogic.Util;
 
 namespace ReviewSiteTest {
 
+    [TestCategory("Serialization")]
     [TestClass]
     public class SerializationTest {
 

@@ -9,6 +9,7 @@ using ReviewSiteData.Persistence;
 
 namespace ReviewSiteTest
 {
+    [TestCategory("Repo Actions")]
     [TestClass]
     public class RepoTest {
 

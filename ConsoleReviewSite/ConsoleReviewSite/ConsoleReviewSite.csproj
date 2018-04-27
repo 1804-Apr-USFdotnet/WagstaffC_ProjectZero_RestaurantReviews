@@ -51,8 +51,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Render\RestaurantDisplay.cs" />
-    <Compile Include="Render\ReviewDisplay.cs" />
+    <Compile Include="States\AddingReview.cs" />
+    <Compile Include="States\Home.cs" />
+    <Compile Include="States\State.cs" />
+    <Compile Include="States\ViewingRestaurant.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -61,6 +63,11 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ReviewSiteLogic\ReviewSiteLogic.csproj">
+      <Project>{9017f06a-e3ce-4eac-a220-15f488243dc6}</Project>
+      <Name>ReviewSiteLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

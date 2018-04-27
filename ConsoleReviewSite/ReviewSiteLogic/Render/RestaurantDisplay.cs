@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ConsoleReviewSite.Render {
+namespace ReviewSiteLogic.Render {
 
     public class RestaurantDisplay {
 

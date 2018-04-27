@@ -1,14 +1,14 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using ReviewSiteData.Base.Model;
+using ReviewSiteLogic.Render;
 
 namespace ReviewSiteTest.Util {
 
-    public class DummyDataLoader {
+    public class TestDataLoader {
 
-        public DummyDataLoader(string path) {
+        public TestDataLoader(string path) {
             //ConfigurationManager.AppSettings.Get("testDataFiles")
         }
 
@@ -17,6 +17,14 @@ namespace ReviewSiteTest.Util {
         }
 
         public void Populate(out List<Review> list) {
+            throw new NotImplementedException();
+        }
+
+        public void Populate(out List<RestaurantDisplay> list) {
+            throw new NotImplementedException();
+        }
+
+        public void Populate(out List<ReviewDisplay> list) {
             throw new NotImplementedException();
         }
 

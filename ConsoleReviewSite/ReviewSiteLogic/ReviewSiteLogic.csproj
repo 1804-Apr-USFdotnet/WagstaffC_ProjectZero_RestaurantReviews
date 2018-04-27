@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Render\RestaurantDisplay.cs" />
+    <Compile Include="Render\ReviewDisplay.cs" />
     <Compile Include="Serialization\RestaurantSerializer.cs" />
     <Compile Include="Serialization\ReviewSerializer.cs" />
     <Compile Include="Session.cs" />
@@ -51,10 +53,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleReviewSite\ConsoleReviewSite.csproj">
-      <Project>{c6e58236-08a0-4253-bb81-0409673e65ac}</Project>
-      <Name>ConsoleReviewSite</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ReviewSiteData\ReviewSiteData.csproj">
       <Project>{c117371c-ab33-4558-84f3-3ed283439fa2}</Project>
       <Name>ReviewSiteData</Name>

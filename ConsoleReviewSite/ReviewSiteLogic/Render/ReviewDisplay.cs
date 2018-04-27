@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ConsoleReviewSite.Render {
+﻿namespace ReviewSiteLogic.Render {
 
     public class ReviewDisplay {
 

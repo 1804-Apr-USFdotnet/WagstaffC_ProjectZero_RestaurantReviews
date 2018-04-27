@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReviewSiteData.Base.Model;
+using ReviewSiteLogic.Util;
 
 namespace ReviewSiteTest {
 
+    [TestCategory("Display Conversion")]
     [TestClass]
     public class DisplayConverterTest {
 
@@ -12,11 +14,14 @@ namespace ReviewSiteTest {
         private List<Restaurant> restaurants;
         private DateTime now;
 
+        private DisplayConverter dsc;
+        
         [TestInitialize]
         public void Initialize() {
             now = DateTime.Now;
             reviews = new List<Review>();
             restaurants = new List<Restaurant>();
+            dsc = new DisplayConverter();
 
             reviews.Add(new Review() {
                 Body = "body1",
@@ -76,7 +81,46 @@ namespace ReviewSiteTest {
         }
 
         [TestMethod]
-        public void TestMethod1() { }
+        public void ReviewToDisplayAnon() {
+            Review r = new Review() {
+                Name = "",
+                Body = "",
+                DatePublished = now,
+                Id = 8,
+                Rating = 4,
+                RestaurantId = 1,
+                Title = "Good"
+            };
+
+            var result = dsc.ToDisplay(r);
+
+            Assert.AreEqual("Anonymous", result.ReviewerName);
+            Assert.AreEqual(now.ToShortDateString(), result.DatePublished);
+            Assert.AreEqual(r.Rating, result.Rating);
+            Assert.AreEqual(r.Title, result.Title);
+            Assert.AreEqual(r.Body, result.Body);
+        }
+
+        [TestMethod]
+        public void ReviewToDisplay() {
+            Review r = new Review() {
+                Name = "Reviewerman",
+                Body = "",
+                DatePublished = now,
+                Id = 8,
+                Rating = 4,
+                RestaurantId = 1,
+                Title = "Good"
+            };
+
+            var result = dsc.ToDisplay(r);
+
+            Assert.AreEqual(r.Name, result.ReviewerName);
+            Assert.AreEqual(now.ToShortDateString(), result.DatePublished);
+            Assert.AreEqual(r.Rating, result.Rating);
+            Assert.AreEqual(r.Title, result.Title);
+            Assert.AreEqual(r.Body, result.Body);
+        }
 
     }
 

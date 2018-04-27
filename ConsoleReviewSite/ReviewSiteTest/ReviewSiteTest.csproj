@@ -70,7 +70,7 @@
   <ItemGroup>
     <Compile Include="DisplayConverterTest.cs" />
     <Compile Include="SessionTest.cs" />
-    <Compile Include="Util\DummyDataLoader.cs" />
+    <Compile Include="Util\TestDataLoader.cs" />
     <Compile Include="RepoTest.cs" />
     <Compile Include="RestaurantToolsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
