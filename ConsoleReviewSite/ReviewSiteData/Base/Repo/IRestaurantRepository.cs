@@ -8,6 +8,7 @@ namespace ReviewSiteData.Base.Repo {
         IEnumerable<Restaurant> GetTopRestaurants(int count);
         IEnumerable<Restaurant> SearchRestaurants(string term);
         IEnumerable<Restaurant> GetRestaurantsReviews();
+        Restaurant GetRestaurantReviews(int id);
 
     }
 

@@ -1,29 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
+using ConsoleReviewSite.Render;
 using ReviewSiteData;
 using ReviewSiteData.Base.Model;
 using ReviewSiteData.Persistence;
+using ReviewSiteLogic.Util;
 
 namespace ReviewSiteLogic {
 
     public class Session {
 
         private WorkUnit _workUnit;
+        private DisplayConverter dsp;
 
-        public Session() {
-            _workUnit = new WorkUnit(new ReviewSiteContext());
+        public Session(string name="ReviewSiteContext") {
+            _workUnit = new WorkUnit(new ReviewSiteContext(name));
+            dsp = new DisplayConverter();
         }
 
-        public List<Restaurant> ViewRestaurants() {
-            throw new NotImplementedException();
+        public List<RestaurantDisplay> ViewTopRestaurants() {
+            var topRestaurants = _workUnit.Restaurants.GetTopRestaurants(3);
+            return dsp.ToDisplay(topRestaurants);
         }
 
-        public Restaurant ViewRestaurant() {
-            throw new NotImplementedException();
+        public List<RestaurantDisplay> ViewRestaurants() {
+            var restaurants = _workUnit.Restaurants.GetRestaurantsReviews();
+            return dsp.ToDisplay(restaurants);
         }
 
-        public List<Review> ViewReviews(int id) {
-            throw new NotImplementedException();
+        public RestaurantDisplay ViewRestaurant(int id) {
+            Restaurant restaurant = _workUnit.Restaurants.GetRestaurantReviews(id);
+            return dsp.ToDisplay(restaurant);
+        }
+
+        public List<ReviewDisplay> ViewReviews(int id) {
+            var reviews = _workUnit.Reviews.GetReviews(id);
+            return dsp.ToDisplay(reviews);
+        }
+
+        public void AddReview(ReviewDisplay rd, int restId) {
+            _workUnit.Reviews.Add(dsp.ToModel(rd, restId));
+            _workUnit.SaveChanges();
         }
 
     }

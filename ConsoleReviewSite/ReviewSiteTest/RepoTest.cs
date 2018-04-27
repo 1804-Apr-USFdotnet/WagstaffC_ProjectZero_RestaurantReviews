@@ -33,7 +33,7 @@ namespace ReviewSiteTest
         [TestMethod]
         public void GetTopRestaurantTypeCorrect() {
 
-            var restaurants = workUnit.Restaurants.GetTopRestaurants(1);
+            var restaurants = workUnit.Restaurants.GetTopRestaurants(3);
 
             Assert.IsInstanceOfType(restaurants.First(), typeof(Restaurant));
         }

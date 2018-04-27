@@ -68,6 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayConverterTest.cs" />
+    <Compile Include="SessionTest.cs" />
     <Compile Include="Util\DummyDataLoader.cs" />
     <Compile Include="RepoTest.cs" />
     <Compile Include="RestaurantToolsTest.cs" />

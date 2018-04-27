@@ -14,12 +14,16 @@ namespace ReviewSiteData.Persistence.Repo {
         public ReviewSiteContext ReviewSiteContext => Context as ReviewSiteContext;
 
         public IEnumerable<Restaurant> GetTopRestaurants(int count) {
-            return ReviewSiteContext.Restaurants.Include(rest => rest.Reviews)
+            return ReviewSiteContext.Restaurants
                    .OrderByDescending(rest => rest.Reviews.Average(rev => rev.Rating)).Take(count).ToList();
         }
 
         public IEnumerable<Restaurant> GetRestaurantsReviews() {
-            return ReviewSiteContext.Restaurants.Include(rest => rest.Reviews).ToList();
+            return ReviewSiteContext.Restaurants.ToList();
+        }
+
+        public Restaurant GetRestaurantReviews(int id) {
+            return ReviewSiteContext.Restaurants.Single(rest => rest.Id == id);
         }
 
         public IEnumerable<Restaurant> SearchRestaurants(string term) {

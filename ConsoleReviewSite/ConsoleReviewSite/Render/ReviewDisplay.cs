@@ -10,6 +10,20 @@ namespace ConsoleReviewSite.Render {
         public int Rating { get; set; }
         public string DatePublished { get; set; }
 
+        public ReviewDisplay(string reviewer, string title, string body, int rating, string published) {
+            ReviewerName = reviewer.Equals("") ? "Anonymous" : reviewer;
+            Title = title;
+            Body = body;
+            Rating = rating;
+            DatePublished = published;
+        }
+
+        public new string ToString() {
+            return $"\"{Title}\"\n" +
+                   $"Rating: {Rating} / 10\n" +
+                   (Body.Equals("") ? "" : $"\"{Body}\"\n") +
+                   $"Left by {ReviewerName} on {DatePublished}.\n";
+        }
     }
 
 }
