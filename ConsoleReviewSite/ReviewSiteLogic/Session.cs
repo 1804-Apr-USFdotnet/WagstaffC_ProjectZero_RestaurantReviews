@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using NLog;
 using ReviewSiteData;
-using ReviewSiteData.Base.Model;
 using ReviewSiteData.Persistence;
 using ReviewSiteLogic.Render;
 using ReviewSiteLogic.Util;
@@ -9,12 +9,19 @@ using ReviewSiteLogic.Util;
 namespace ReviewSiteLogic {
 
     public class Session {
+        private readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        private WorkUnit _workUnit;
-        private DisplayConverter dsp;
+        private readonly WorkUnit _workUnit;
+        private readonly DisplayConverter dsp;
 
         public Session(string name="ReviewSiteContext") {
-            _workUnit = new WorkUnit(new ReviewSiteContext(name));
+            try {
+                _workUnit = new WorkUnit(new ReviewSiteContext(name));
+            }
+            catch (Exception e) {
+                logger.Fatal(e.Message);
+            }
+
             dsp = new DisplayConverter();
         }
 
@@ -44,8 +51,13 @@ namespace ReviewSiteLogic {
         }
 
         public void AddReview(ReviewDisplay rd, int restId) {
-            _workUnit.Reviews.Add(dsp.ToModel(rd, restId));
-            _workUnit.SaveChanges();
+            try {
+                _workUnit.Reviews.Add(dsp.ToModel(rd, restId));
+                _workUnit.SaveChanges();
+            }
+            catch (Exception e) {
+                logger.Error(e.Message);
+            }
         }
 
     }
