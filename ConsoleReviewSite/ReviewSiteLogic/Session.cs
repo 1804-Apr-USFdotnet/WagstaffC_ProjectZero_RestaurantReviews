@@ -28,6 +28,11 @@ namespace ReviewSiteLogic {
             return dsp.ToDisplay(restaurants);
         }
 
+        public List<RestaurantDisplay> SearchRestaurants(string term) {
+            var restaurants = _workUnit.Restaurants.SearchRestaurants(term);
+            return dsp.ToDisplay(restaurants);
+        }
+
         public RestaurantDisplay ViewRestaurant(int id) {
             var restaurant = _workUnit.Restaurants.GetRestaurantReviews(id);
             return dsp.ToDisplay(restaurant);

@@ -4,18 +4,23 @@ using ReviewSiteLogic;
 
 namespace ConsoleReviewSite.States {
 
+    internal enum StateId { AddingReview, Home, Searching, ViewingRestaurant, ViewingResults, Quit };
+
     public abstract class State {
 
-        private static Session _session;
-        protected List<State> transitions;
+        protected static Session _session;
+        internal Dictionary<char, StateId> transitions;
+        internal StateId stateType;
 
-        protected State(Session s) {
-            _session = s;
+        protected State() {
+            _session = new Session("TestReviewSiteContext");
         }
+
+        public abstract State Enter();
 
         public abstract void Display();
 
-        public char WaitForInput() {
+        protected char WaitForInput() {
             return Console.ReadKey(true).KeyChar;
         }
 

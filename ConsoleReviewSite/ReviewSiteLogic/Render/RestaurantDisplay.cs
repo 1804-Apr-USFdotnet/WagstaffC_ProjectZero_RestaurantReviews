@@ -8,7 +8,7 @@ namespace ReviewSiteLogic.Render {
         public string Name { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
-        public string Rating { get; set; }
+        public double Rating { get; set; }
 
         public List<ReviewDisplay> Reviews { get; set; }
 
@@ -17,12 +17,12 @@ namespace ReviewSiteLogic.Render {
             Name = name;
             Address = address;
             Phone = phone;
-            Rating = rating.ToString("N1");
+            Rating = rating;
         }
 
-        public new string ToString() {
-            return $"{Name}" + 
-                   $"Rating: {Rating} / 10\n" + 
+        public override string ToString() {
+            return $"({Id}) {Name}\n" + 
+                   $"Rating: {Rating.ToString("N1")} / 10\n" + 
                    $"Address: {Address}\n" +
                    $"Phone: {Phone}\n";
         }

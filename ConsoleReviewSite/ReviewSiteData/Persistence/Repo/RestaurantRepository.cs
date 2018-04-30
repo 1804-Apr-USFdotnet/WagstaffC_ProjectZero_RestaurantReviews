@@ -27,7 +27,8 @@ namespace ReviewSiteData.Persistence.Repo {
         }
 
         public IEnumerable<Restaurant> SearchRestaurants(string term) {
-            throw new NotImplementedException();
+            return ReviewSiteContext.Restaurants.Where(rest => rest.Name.Contains(term) || rest.Address.Contains(term))
+                .ToList();
         }
         
     }

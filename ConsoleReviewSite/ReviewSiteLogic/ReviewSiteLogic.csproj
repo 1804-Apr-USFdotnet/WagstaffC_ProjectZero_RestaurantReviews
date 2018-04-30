@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Render\RestaurantDisplay.cs" />
     <Compile Include="Render\ReviewDisplay.cs" />
+    <Compile Include="Serialization\RestaurantDeserializer.cs" />
     <Compile Include="Serialization\RestaurantSerializer.cs" />
     <Compile Include="Serialization\ReviewSerializer.cs" />
     <Compile Include="Session.cs" />

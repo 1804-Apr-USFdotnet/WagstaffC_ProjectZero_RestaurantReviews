@@ -16,10 +16,10 @@
             DatePublished = published;
         }
 
-        public new string ToString() {
+        public override string ToString() {
             return $"\"{Title}\"\n" +
                    $"Rating: {Rating} / 10\n" +
-                   (Body.Equals("") ? "" : $"\"{Body}\"\n") +
+                   (Body is null ? "" : $"\"{Body}\"\n") +
                    $"Left by {ReviewerName} on {DatePublished}.\n";
         }
     }
