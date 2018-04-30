@@ -9,6 +9,8 @@ namespace ConsoleReviewSite.States {
         public AddingReview(int id) : base(id) { }
 
         public override State Enter() {
+            Display();
+
             _session.AddReview(GetUserInput(), restaurantId);
 
             return new ViewingRestaurant(restaurantId);
@@ -37,7 +39,7 @@ namespace ConsoleReviewSite.States {
             Console.WriteLine("Adding Review...");
             var name = _session.ViewRestaurant(restaurantId).Name;
 
-            Console.WriteLine($"For {name}");
+            Console.WriteLine($"For {name}\n");
         }
 
     }

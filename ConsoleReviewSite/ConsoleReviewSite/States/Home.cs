@@ -48,17 +48,16 @@ namespace ConsoleReviewSite.States {
         public override void Display() {
             Console.WriteLine("Home...");
 
-            Console.WriteLine("(1) Select Restaurant\n" +
-                              "(2) Search\n" +
-                              "(3) View Full Listings\n" +
-                              "(q) Quit");
-
             Console.WriteLine("Top Rated Restaurants");
             var topRestaurants = _session.ViewTopRestaurants();
             foreach (var restaurant in topRestaurants) {
                 Console.WriteLine(restaurant);
             }
             
+            Console.WriteLine("(1) Select Restaurant\n" +
+                              "(2) Search\n" +
+                              "(3) View Full Listings\n" +
+                              "(q) Quit\n");
         }
 
     }

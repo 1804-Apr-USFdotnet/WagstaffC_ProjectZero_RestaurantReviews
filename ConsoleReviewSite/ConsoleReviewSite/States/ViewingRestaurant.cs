@@ -57,7 +57,7 @@ namespace ConsoleReviewSite.States {
             Console.WriteLine("(1) Add a Review\n" +
                               "(2) Search \n" +
                               "(3) Home\n" +
-                              "(q) Quit");
+                              "(q) Quit\n");
         }
 
     }

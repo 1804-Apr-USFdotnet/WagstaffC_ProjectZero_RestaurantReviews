@@ -10,7 +10,6 @@ namespace ConsoleReviewSite.States {
 
         protected static Session _session;
         internal Dictionary<char, StateId> transitions;
-        internal StateId stateType;
 
         protected State() {
             _session = new Session("TestReviewSiteContext");

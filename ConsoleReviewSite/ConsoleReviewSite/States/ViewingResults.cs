@@ -107,7 +107,7 @@ namespace ConsoleReviewSite.States {
                               "(4) Sort By Name Z-A\n" +
                               "(5) Sort By Rating High-Low\n" +
                               "(6) Sort By Rating Low-High\n" +
-                              "(q) Quit");
+                              "(q) Quit\n");
         }
 
     }
