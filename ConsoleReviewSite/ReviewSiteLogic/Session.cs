@@ -26,28 +26,57 @@ namespace ReviewSiteLogic {
         }
 
         public List<RestaurantDisplay> ViewTopRestaurants() {
-            var topRestaurants = _workUnit.Restaurants.GetTopRestaurants(3);
-            return dsp.ToDisplay(topRestaurants);
+            return dsp.ToDisplay(_workUnit.Restaurants.GetTopRestaurants(3));
         }
 
         public List<RestaurantDisplay> ViewRestaurants() {
-            var restaurants = _workUnit.Restaurants.GetRestaurantsReviews();
-            return dsp.ToDisplay(restaurants);
+            return dsp.ToDisplay(_workUnit.Restaurants.GetRestaurantsReviews());
+        }
+
+        public List<RestaurantDisplay> ViewRestaurantsSortedNameAsc() {
+            return dsp.ToDisplay(_workUnit.Restaurants.GetRestaurantsReviewsSortedName(false));
+        }
+
+        public List<RestaurantDisplay> ViewRestaurantsSortedNameDesc() {
+            return dsp.ToDisplay(_workUnit.Restaurants.GetRestaurantsReviewsSortedName(true));
+
+        }
+
+        public List<RestaurantDisplay> ViewRestaurantsSortedRatingAsc() {
+            return dsp.ToDisplay(_workUnit.Restaurants.GetRestaurantsReviewsSortedRating(false));
+        }
+
+        public List<RestaurantDisplay> ViewRestaurantsSortedRatingDesc() {
+            return dsp.ToDisplay(_workUnit.Restaurants.GetRestaurantsReviewsSortedRating(true));
+
         }
 
         public List<RestaurantDisplay> SearchRestaurants(string term) {
-            var restaurants = _workUnit.Restaurants.SearchRestaurants(term);
-            return dsp.ToDisplay(restaurants);
+            return dsp.ToDisplay(_workUnit.Restaurants.SearchRestaurants(term));
+        }
+
+        public List<RestaurantDisplay> SearchRestaurantsSortedNameAsc(string term) {
+            return dsp.ToDisplay(_workUnit.Restaurants.SearchRestaurantsSortedName(term, false));
+        }
+
+        public List<RestaurantDisplay> SearchRestaurantsSortedNameDesc(string term) {
+            return dsp.ToDisplay(_workUnit.Restaurants.SearchRestaurantsSortedName(term, true));
+        }
+
+        public List<RestaurantDisplay> SearchRestaurantsSortedRatingAsc(string term) {
+            return dsp.ToDisplay(_workUnit.Restaurants.SearchRestaurantsSortedRating(term, false));
+        }
+
+        public List<RestaurantDisplay> SearchRestaurantsSortedRatingDesc(string term) {
+            return dsp.ToDisplay(_workUnit.Restaurants.SearchRestaurantsSortedRating(term, true));
         }
 
         public RestaurantDisplay ViewRestaurant(int id) {
-            var restaurant = _workUnit.Restaurants.GetRestaurantReviews(id);
-            return dsp.ToDisplay(restaurant);
+            return dsp.ToDisplay(_workUnit.Restaurants.GetRestaurantReviews(id));
         }
 
         public List<ReviewDisplay> ViewReviews(int id) {
-            var reviews = _workUnit.Reviews.GetReviews(id);
-            return dsp.ToDisplay(reviews);
+            return dsp.ToDisplay(_workUnit.Reviews.GetReviews(id));
         }
 
         public void AddReview(ReviewDisplay rd, int restId) {
