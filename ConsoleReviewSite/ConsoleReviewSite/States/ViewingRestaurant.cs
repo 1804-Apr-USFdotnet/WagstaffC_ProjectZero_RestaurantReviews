@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ReviewSiteLogic;
 
 namespace ConsoleReviewSite.States {
 
     public class ViewingRestaurant : State {
-
         public int restaurantId { get; set; }
 
         public ViewingRestaurant() {
@@ -24,7 +22,7 @@ namespace ConsoleReviewSite.States {
         public override State Enter() {
             Display();
 
-            char response = WaitForInput();
+            var response = WaitForInput();
 
             switch (transitions[response]) {
                 case StateId.Searching:
@@ -50,16 +48,13 @@ namespace ConsoleReviewSite.States {
 
             var restaurant = _session.ViewRestaurant(restaurantId);
             Console.WriteLine(restaurant);
-            foreach (var review in restaurant.Reviews) {
-                Console.WriteLine(review);
-            }
+            foreach (var review in restaurant.Reviews) Console.WriteLine(review);
 
             Console.WriteLine("(1) Add a Review\n" +
                               "(2) Search \n" +
                               "(3) Home\n" +
                               "(q) Quit\n");
         }
-
     }
 
 }

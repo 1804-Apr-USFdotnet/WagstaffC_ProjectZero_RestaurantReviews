@@ -9,13 +9,12 @@ namespace ReviewSiteTest {
     [TestCategory("Display Conversion")]
     [TestClass]
     public class DisplayConverterTest {
-
         private List<Review> reviews;
         private List<Restaurant> restaurants;
         private DateTime now;
 
         private DisplayConverter dsc;
-        
+
         [TestInitialize]
         public void Initialize() {
             now = DateTime.Now;
@@ -82,7 +81,7 @@ namespace ReviewSiteTest {
 
         [TestMethod]
         public void ReviewToDisplayAnon() {
-            Review r = new Review() {
+            var r = new Review() {
                 Name = "",
                 Body = "",
                 DatePublished = now,
@@ -103,7 +102,7 @@ namespace ReviewSiteTest {
 
         [TestMethod]
         public void ReviewToDisplay() {
-            Review r = new Review() {
+            var r = new Review() {
                 Name = "Reviewerman",
                 Body = "",
                 DatePublished = now,
@@ -121,7 +120,6 @@ namespace ReviewSiteTest {
             Assert.AreEqual(r.Title, result.Title);
             Assert.AreEqual(r.Body, result.Body);
         }
-
     }
 
 }

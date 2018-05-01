@@ -2,10 +2,9 @@
 using Newtonsoft.Json;
 using ReviewSiteData.Base.Model;
 
-namespace ReviewSiteLogic.Serialization
-{
-    public static class RestaurantDeserializer
-    {
+namespace ReviewSiteLogic.Serialization {
+
+    public static class RestaurantDeserializer {
         public static Restaurant Deserialize(string json) {
             return JsonConvert.DeserializeObject<Restaurant>(json);
         }
@@ -14,4 +13,5 @@ namespace ReviewSiteLogic.Serialization
             return JsonConvert.DeserializeObject<List<Restaurant>>(json);
         }
     }
+
 }

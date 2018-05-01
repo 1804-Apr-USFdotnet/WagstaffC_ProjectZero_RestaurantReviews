@@ -3,7 +3,6 @@
 namespace ConsoleReviewSite {
 
     public class UserSession {
-
         public State state;
 
         public UserSession() {
@@ -11,11 +10,8 @@ namespace ConsoleReviewSite {
         }
 
         public void Go() {
-            while (true) {
-                state = state.Enter();
-            }
+            while (true) state = state.Enter();
         }
-
     }
 
 }

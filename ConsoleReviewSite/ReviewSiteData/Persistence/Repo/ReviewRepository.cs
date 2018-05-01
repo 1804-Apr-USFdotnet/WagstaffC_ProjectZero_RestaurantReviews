@@ -6,16 +6,14 @@ using ReviewSiteData.Base.Repo;
 
 namespace ReviewSiteData.Persistence.Repo {
 
-    class ReviewRepository : Repository<Review>, IReviewRepository {
+    internal class ReviewRepository : Repository<Review>, IReviewRepository {
         public ReviewRepository(DbContext context) : base(context) { }
 
         public ReviewSiteContext ReviewSiteContext => Context as ReviewSiteContext;
 
         public IEnumerable<Review> GetReviews(int restaurantId) {
-
             return ReviewSiteContext.Reviews.Where(r => r.RestaurantId == restaurantId).ToList();
         }
-
     }
 
 }

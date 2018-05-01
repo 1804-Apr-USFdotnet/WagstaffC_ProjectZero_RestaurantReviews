@@ -6,8 +6,12 @@ using ReviewSiteLogic.Render;
 namespace ConsoleReviewSite.States {
 
     public class ViewingResults : State {
-
-        enum SortType { NameAsc, NameDesc, RatingAsc, RatingDesc };
+        private enum SortType {
+            NameAsc,
+            NameDesc,
+            RatingAsc,
+            RatingDesc
+        };
 
         private List<RestaurantDisplay> results;
         private Dictionary<char, SortType> sorts;
@@ -50,18 +54,15 @@ namespace ConsoleReviewSite.States {
                     results = _session.SearchRestaurants(searchTerm).OrderByDescending(r => r.Rating).ToList();
                     break;
             }
-            
         }
-        
+
 
         public override State Enter() {
             Display();
 
-            char repsonse = WaitForInput();
+            var repsonse = WaitForInput();
 
-            if (sorts.ContainsKey(repsonse)) {
-                return new ViewingResults(searchTerm, sorts[repsonse]);
-            }
+            if (sorts.ContainsKey(repsonse)) return new ViewingResults(searchTerm, sorts[repsonse]);
 
             switch (transitions[repsonse]) {
                 case StateId.ViewingRestaurant:
@@ -88,18 +89,13 @@ namespace ConsoleReviewSite.States {
         public override void Display() {
             Console.WriteLine("Viewing Results...");
 
-            if (results is null) {
-                results = _session.ViewRestaurants();
-            }
+            if (results is null) results = _session.ViewRestaurants();
 
-            if (results.Count > 0) {
-                foreach (var result in results) {
+            if (results.Count > 0)
+                foreach (var result in results)
                     Console.WriteLine(result);
-                }
-            }
-            else {
+            else
                 Console.WriteLine("Search returned no results...");
-            }
 
             Console.WriteLine("(1) Select Restaurant\n" +
                               "(2) Home\n" +
@@ -109,7 +105,6 @@ namespace ConsoleReviewSite.States {
                               "(6) Sort By Rating Low-High\n" +
                               "(q) Quit\n");
         }
-
     }
 
 }

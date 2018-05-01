@@ -9,7 +9,6 @@ namespace ReviewSiteTest {
     [TestCategory("Serialization")]
     [TestClass]
     public class SerializationTest {
-
         private List<Restaurant> restaurants;
         private List<Review> reviews;
 

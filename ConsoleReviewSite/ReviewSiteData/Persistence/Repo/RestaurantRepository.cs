@@ -13,7 +13,7 @@ namespace ReviewSiteData.Persistence.Repo {
 
         public IEnumerable<Restaurant> GetTopRestaurants(int count) {
             return ReviewSiteContext.Restaurants
-                   .OrderByDescending(rest => rest.Reviews.Average(rev => rev.Rating)).Take(count).ToList();
+                .OrderByDescending(rest => rest.Reviews.Average(rev => rev.Rating)).Take(count).ToList();
         }
 
         public IEnumerable<Restaurant> GetRestaurantsReviews() {
@@ -28,7 +28,6 @@ namespace ReviewSiteData.Persistence.Repo {
             return ReviewSiteContext.Restaurants.Where(rest => rest.Name.Contains(term) || rest.Address.Contains(term))
                 .ToList();
         }
-        
     }
 
 }

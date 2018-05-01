@@ -3,7 +3,6 @@
 namespace ReviewSiteLogic.Render {
 
     public class RestaurantDisplay {
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
@@ -21,8 +20,8 @@ namespace ReviewSiteLogic.Render {
         }
 
         public override string ToString() {
-            return $"({Id}) {Name}\n" + 
-                   $"Rating: {Rating.ToString("N1")} / 10\n" + 
+            return $"({Id}) {Name}\n" +
+                   $"Rating: {Rating.ToString("N1")} / 10\n" +
                    $"Address: {Address}\n" +
                    $"Phone: {Phone}\n";
         }

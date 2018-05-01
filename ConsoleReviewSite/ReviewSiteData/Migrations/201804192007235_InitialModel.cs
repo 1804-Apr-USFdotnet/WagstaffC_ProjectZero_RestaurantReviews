@@ -10,7 +10,7 @@ namespace ReviewSiteData.Migrations
                     "dbo.Restaurants",
                     c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(false, true),
                         Name = c.String(),
                         Address = c.String(),
                         Phone = c.String(),
@@ -21,11 +21,11 @@ namespace ReviewSiteData.Migrations
                     "dbo.Reviews",
                     c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(false, true),
                         Name = c.String(),
                         Title = c.String(),
                         Body = c.String(),
-                        Rating = c.Int(nullable: false),
+                        Rating = c.Int(false),
                         Restaurant_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)

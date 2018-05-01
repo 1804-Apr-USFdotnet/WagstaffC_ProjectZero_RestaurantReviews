@@ -14,7 +14,7 @@ namespace ReviewSiteLogic {
         private readonly WorkUnit _workUnit;
         private readonly DisplayConverter dsp;
 
-        public Session(string name="ReviewSiteContext") {
+        public Session(string name = "ReviewSiteContext") {
             try {
                 _workUnit = new WorkUnit(new ReviewSiteContext(name));
             }
@@ -59,7 +59,6 @@ namespace ReviewSiteLogic {
                 logger.Error(e.Message);
             }
         }
-
     }
 
 }

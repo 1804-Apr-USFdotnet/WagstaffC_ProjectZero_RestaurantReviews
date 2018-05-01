@@ -5,7 +5,6 @@ using ReviewSiteData.Persistence.Repo;
 namespace ReviewSiteData.Persistence {
 
     public class WorkUnit : IWorkUnit {
-
         private readonly ReviewSiteContext _context;
 
         public IRestaurantRepository Restaurants { get; private set; }
@@ -17,12 +16,13 @@ namespace ReviewSiteData.Persistence {
             Reviews = new ReviewRepository(_context);
         }
 
-        public int SaveChanges() => _context.SaveChanges();
+        public int SaveChanges() {
+            return _context.SaveChanges();
+        }
 
         public void Dispose() {
             _context.Dispose();
         }
-
     }
 
 }

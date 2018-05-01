@@ -6,7 +6,7 @@ namespace ReviewSiteData.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Reviews", "DatePublished", c => c.DateTime(nullable: false));
+            AddColumn("dbo.Reviews", "DatePublished", c => c.DateTime(false));
         }
 
         public override void Down()

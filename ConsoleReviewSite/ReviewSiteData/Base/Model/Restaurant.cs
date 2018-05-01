@@ -8,7 +8,6 @@ namespace ReviewSiteData.Base.Model {
         public string Address { get; set; }
         public string Phone { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
-
     }
 
 }

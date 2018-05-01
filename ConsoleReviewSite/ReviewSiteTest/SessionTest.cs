@@ -10,7 +10,6 @@ namespace ReviewSiteTest {
     [TestCategory("Session Actions")]
     [TestClass]
     public class SessionTest {
-
         private Session session;
 
         [TestInitialize]
@@ -46,9 +45,9 @@ namespace ReviewSiteTest {
 
         [TestMethod]
         public void AddReview() {
-            string reviewGuid = Guid.NewGuid().ToString();
+            var reviewGuid = Guid.NewGuid().ToString();
             var rd = new ReviewDisplay("ReviewerName", "ReviewTitle", reviewGuid, 5, "");
-            int restid = 1;
+            var restid = 1;
 
             session.AddReview(rd, restid);
             var result = session.ViewReviews(restid).Single(r => r.Body == reviewGuid);

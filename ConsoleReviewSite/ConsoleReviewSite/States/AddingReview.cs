@@ -1,5 +1,4 @@
 ﻿using System;
-using ReviewSiteLogic;
 using ReviewSiteLogic.Render;
 
 namespace ConsoleReviewSite.States {

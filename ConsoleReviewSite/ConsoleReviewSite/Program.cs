@@ -1,16 +1,11 @@
-﻿using ConsoleReviewSite.States;
+﻿namespace ConsoleReviewSite {
 
-namespace ConsoleReviewSite {
-
-    class Program {
-
-        static void Main(string[] args) {
-
-            UserSession consoleApp = new UserSession();
+    internal class Program {
+        private static void Main(string[] args) {
+            var consoleApp = new UserSession();
 
             consoleApp.Go();
         }
-
     }
 
 }
